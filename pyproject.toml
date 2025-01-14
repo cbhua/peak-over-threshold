@@ -1,0 +1,99 @@
+[project]
+name = "peak-over-threshold"
+version = "0.2.0"
+description = "Implement of algorithms about Peaks-over-Threshold, including POT, Stream POT, and Streaming POT with drift."
+authors = [
+    { name = "Chuanbo Hua", email = "huachuanbo@gmail.com" },
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = "MIT"
+keywords = [
+    "peak over threshold",
+    "extreme value theory",
+    "peak analysis",
+    "abnormal analysis"
+]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "matplotlib",
+    "rich",
+    "scipy",
+    "numpy",
+]
+
+[project.urls]
+Repository = "https://github.com/cbhua/peak-over-threshold"
+Tracker = "https://github.com/cbhua/peak-over-threshold/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.black]
+line-length = 90
+target-version = ["py311"]
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.direnv
+    | \.eggs
+    | \.git
+    | \.tox
+    | \.venv
+    | _build
+    | build
+    | dist
+    | venv
+  )/
+)
+'''
+
+[tool.ruff]
+select = ["F", "E", "W", "I001"]
+line-length = 90
+show-fixes = false
+target-version = "py311"
+task-tags = ["TODO", "FIXME"]
+ignore = ["E501"] # never enforce `E501` (line length violations), done in Black
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["E402", "F401"]
+
+[tool.ruff.isort]
+known-first-party = []
+known-third-party = []
+section-order = [
+    "future",
+    "standard-library",
+    "third-party",
+    "first-party",
+    "local-folder",
+]
+combine-as-imports = true
+split-on-trailing-comma = false
+lines-between-types = 1
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.coverage.report]
+show_missing = true
+exclude_lines = [
+    # Lines to exclude from coverage report (e.g., comments, debug statements)
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+]
