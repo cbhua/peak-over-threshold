@@ -37,14 +37,14 @@ def Grimshaw(
     c = 2 * (mean - min) / (min ** 2)
 
     candidate_gamma = solve(
-        function=lambda t: function(peaks, threshold), 
-        dev_function=lambda t: dev_function(peaks, threshold), 
+        function=lambda threshold: function(peaks, threshold), 
+        dev_function=lambda threshold: dev_function(peaks, threshold), 
         bounds=(a + epsilon, -epsilon), 
         num_candidates=num_candidates
     )
     candidate_sigma = solve(
-        function=lambda t: function(peaks, threshold), 
-        dev_function=lambda t: dev_function(peaks, threshold), 
+        function=lambda threshold: function(peaks, threshold), 
+        dev_function=lambda threshold: dev_function(peaks, threshold), 
         bounds=(b, c), 
         num_candidates=num_candidates
     )
