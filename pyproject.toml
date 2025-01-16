@@ -88,7 +88,7 @@ split-on-trailing-comma = false
 lines-between-types = 1
 
 [tool.hatch.build.targets.wheel]
-packages = ["src"]
+packages = ["src/peak_over_threshold"]
 
 [tool.coverage.report]
 show_missing = true
