@@ -39,7 +39,7 @@ def Grimshaw(
     candidate_gamma = solve(
         function=lambda threshold: function(peaks, threshold), 
         dev_function=lambda threshold: dev_function(peaks, threshold), 
-        bounds=(a + epsilon, -epsilon), 
+        bounds=(a, -epsilon), 
         num_candidates=num_candidates
     )
     candidate_sigma = solve(
